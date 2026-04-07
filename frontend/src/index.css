@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* Custom theme values (optional) */
+@theme {
+  --color-primary: oklch(0.72 0.11 178);   /* teal example */
+  --font-display: "Poppins", sans-serif;
+  --spacing-13: 3.25rem;
+}
+
+/* Custom utility – no dot, just the name */
+@utility custom-glow {
+  box-shadow: 0 0 20px theme(--color-primary / 40%);
+}
+
+/* Another example: a simple custom utility */
+@utility sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
