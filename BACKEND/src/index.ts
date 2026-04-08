@@ -22,6 +22,9 @@ import { paginationChecker } from "./middlewares/PaginationChecker";
 import { Admin } from "./models";
 import { hash } from "bcrypt";
 import { startNotificationJobs } from "./jobs/notification.job";
+import dotenv from "dotenv";
+dotenv.config();
+
 
 const publicFolderPath = path.join(process.cwd(), FOLDER_PATH.PUBLIC);
 const uploadFolderPath = path.join(publicFolderPath, FOLDER_PATH.UPLOADS);
@@ -58,6 +61,11 @@ const app = express();
 app.use(morgan("dev")); //! 📝 Log HTTP or HTTPS requests
 
 app.use(cors(corsConfig)); //! 📝 Enable Cross-Origin Resource Sharing (CORS)
+
+app.use(cors({
+  origin: "https://department-digital-hub-a22.vercel.app",
+  credentials: true
+}));
 
 app.use(express.json()); //! 📝 Parse JSON bodies
 
