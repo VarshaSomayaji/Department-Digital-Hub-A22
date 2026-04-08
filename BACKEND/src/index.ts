@@ -156,10 +156,12 @@ app.get("/", (_, res) => {
   });
 });
 
-app.use(paginationChecker); //! 🚨 Pagniation Middleware
+app.use(paginationChecker);
+app.use("/api/auth", require("./controllers/user").default);
+ //! 🚨 Pagniation Middleware
 app.use(memberAuthHandler); //! 🚨 Auth Middleware
 
-app.use("/api/auth", require("./controllers/user").default);
+
 app.use("/api/announcements", require("./controllers/announcement").default);
 app.use("/api/polls", require("./controllers/poll").default);
 app.use("/api/placements", require("./controllers/placement").default);
